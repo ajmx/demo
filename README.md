@@ -1,6 +1,6 @@
 # demo
 
-Demonstration of ReactJS and AWS 
+Demonstration of AWS and ReactJS 
 
 Technology Used
 ---------------
