@@ -1,2 +1,2 @@
 # demo
-Demonstration of services
+Demonstration of ReactJS and AWS 
