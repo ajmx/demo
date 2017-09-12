@@ -1,0 +1,15 @@
+version: 0.1
+
+phases:
+  build:
+    commands:
+      - echo No build phase yet
+
+artifacts:
+  files:
+    - index.html
+    - favicon.ico
+    - seek_blurg.pdf
+    - styles/main.css
+    - images/*
+    

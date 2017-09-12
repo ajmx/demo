@@ -7,3 +7,7 @@ Technology Used
 Git
 GitHub
 SSH
+HTML5
+CSS
+Font Awesome
+Google Fonts
