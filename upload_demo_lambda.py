@@ -8,7 +8,7 @@ def lambda_handler(event, context):
     build_name = 'demo.build.ajumo.co.uk'
     title = 'Deployment finished'
     message = '{0} for demo application. Deployed from {1} to {2}.'
-    location = {'bucketName': build_name, 'objectKey':'demo_ajumo_build.zip'}
+    build_location = {'bucketName': build_name, 'objectKey':'demo_ajumo_build.zip'}
     
     try:
         s3 = boto3.resource('s3')
@@ -20,13 +20,13 @@ def lambda_handler(event, context):
         if job:
             for artifact in job['data']['inputArtifacts']:
                 if artifact['name'] == 'MyAppBuild':
-                    location = artifact['location']['s3Location']
+                    build_location = artifact['location']['s3Location']
 
         demo_bucket = s3.Bucket(demo_name)
-        build_bucket = s3.Bucket(location['bucketName'])
+        build_bucket = s3.Bucket(build_location['bucketName'])
 
         demo_zip = StringIO.StringIO()
-        build_bucket.download_fileobj(location['objectKey'],demo_zip)
+        build_bucket.download_fileobj(build_location['objectKey'],demo_zip)
 
         with zipfile.ZipFile(demo_zip) as zfile:
             for fname in zfile.namelist():
@@ -37,7 +37,7 @@ def lambda_handler(event, context):
         print message.format(title, build_name, demo_name)
         topic.publish(
             Subject=title, 
-            Message=message.format(title, build_name, demo_name))
+            Message=message.format(title, build_location['bucketName'], demo_name))
         if job:
             code_pipeline = boto3.client('codepipeline')
             code_pipeline.put_job_success_result(jobId=job['id'])
