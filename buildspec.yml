@@ -3,7 +3,8 @@ version: 0.1
 phases:
   build:
     commands:
-      - echo No build phase yet
+      - npm install
+      - npm run webpack
 
 artifacts:
   files:
@@ -12,4 +13,4 @@ artifacts:
     - seek_blurg.pdf
     - styles/main.css
     - images/*
-    
+    - dist/bundle.js

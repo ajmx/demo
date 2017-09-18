@@ -1,0 +1,39 @@
+import React from 'react';
+
+class WorkExamples extends React.Component {
+    render() {
+        return (
+            <section className="section section--alignCentered section--description">
+                {this.props.examples.map((example, idx) => {
+                        return (
+                            <WorkExample work={example} key={idx}/>
+                        )
+                    })
+                }
+            </section>
+        )
+    }
+}
+
+class WorkExample extends React.Component {
+    render() {
+        let work = this.props.work;
+        return (
+            <div className="section__exampleWrapper">
+                <div className="section__example">
+                    <img alt={work.image.alt}
+                        className="section__exampleImage"
+                        src={work.image.src} />          {work.image.comment}
+                    <dl className="color--cloud">
+                        <dt className="section__exampleTitle section__text--centered">
+                            {work.title}
+            </dt>
+                        <dd></dd>
+                    </dl>
+                </div>
+            </div>
+        )
+    }
+}
+
+export default WorkExamples;
