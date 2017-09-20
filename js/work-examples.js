@@ -37,3 +37,4 @@ class WorkExample extends React.Component {
 }
 
 export default WorkExamples;
+export { WorkExample }
