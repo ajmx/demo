@@ -5,6 +5,8 @@ import WorkExamples from './work-examples';
 const workExamples = [
     {
         'title': 'Work Example',
+        'description': 'A project involving code',
+        'href': '/demo',
         'image': {
             'alt': 'example screenshot of a project involving code',
             'src': 'images/example1.png',
@@ -13,19 +15,22 @@ const workExamples = [
     },
     {
         'title': 'Work Example',
+        'description': 'A project involving machine learning',
+        'href': '/demo',
         'image': {
-            'alt': 'example screenshot of a project involving chemistry',
+            'alt': 'example screenshot of a project involving machine learning',
             'src': 'images/example2.png',
             'comment':'',
         }
     },
     {
         'title': 'Work Example',
+        'description': 'A project involving communication',
+        'href': '/demo',
         'image': {
-            'alt': 'example screenshot of a project involving cats',
+            'alt': 'example screenshot of a project involving communication',
             'src': 'images/example3.png',
-            'comment':`<!-- Bengal cat” by roberto shabs is licensed under CC BY 2.0
-               https://www.flickr.com/photos/37287295@N00/2540855181 -->`
+            'comment':``
         }
     },
 ]
